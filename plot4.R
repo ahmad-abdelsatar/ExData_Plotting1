@@ -33,7 +33,7 @@ lines(epc$Date,epc$Sub_metering_2, xlab = "", ylab = "Energy sub metering", col 
 lines(epc$Date,epc$Sub_metering_3, xlab = "", ylab = "Energy sub metering", col = "blue", type = "l")
 
 #adding legens 
-legend("topright",legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1 , lwd = 0.75 , cex = 0.75 , bty = "n")
+legend("topright",legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1 , lwd = 0.75  , bty = "n")
 
 #fourth plot (2,2)
 plot(epc$Date,epc$Global_reactive_power, type = "l",xlab = "datetime",ylab = "Global_reactive_power")
