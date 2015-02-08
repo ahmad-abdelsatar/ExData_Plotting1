@@ -1,0 +1,27 @@
+
+#reading data into working space
+epc <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", na.strings = "?")
+
+#subsetting the required dates
+epc <- epc[epc$Date %in% c("1/2/2007", "2/2/2007"),]
+
+epc <-na.omit(epc)
+
+#changing date format
+epc$Date <- strptime(paste(epc$Date,epc$Time), "%d/%m/%Y %H:%M:%S")
+
+#openenig a png device to save the polt the default size is 480 * 480
+png(file = "plot3.png")
+
+#first plotting with only the first sub metering
+plot(epc$Date,epc$Sub_metering_1, xlab = "", ylab = "Energy sub metering", col = "black", type = "l")
+
+#adding the other two sub metering
+lines(epc$Date,epc$Sub_metering_2, xlab = "", ylab = "Energy sub metering", col = "red", type = "l")
+
+lines(epc$Date,epc$Sub_metering_3, xlab = "", ylab = "Energy sub metering", col = "blue", type = "l")
+
+#adding legens 
+legend("topright",legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1 )
+
+dev.off()
