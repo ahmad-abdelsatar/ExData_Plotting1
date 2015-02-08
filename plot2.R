@@ -1,7 +1,7 @@
 
 #reading data into working space
-epc <- housedata <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", na.strings = "?")
-
+epc <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", na.strings = "?")
+ 
 #subsetting the required dates
 epc <- epc[epc$Date %in% c("1/2/2007", "2/2/2007"),]
 
